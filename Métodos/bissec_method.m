@@ -5,7 +5,6 @@ home;
 
 # define uma função no octave
 
-
 disp("Programa para calcular a raiz de uma função não linear através do método da bissecção");
 tol = input("Insira a tolerância: ");
 a = input("Insira o limite inferior do intervalo, a: ");
@@ -18,23 +17,28 @@ xi = 0;
 xf = (a + b) / 2.;
 
 f = @func1;
-
-while (abs(f(xf)) > tol || abs(1-xi/xf) > tol) && contador >= cmax
-  # verifica em qual dos intervalos está a raiz
+# testa se o intervalo fornecido é válido( não muda de sinal)
+if(f(a)*f(b) < 0)
+  # Verifica (Condição de parada) and contador <= limite
+  # Condição de parada, é atingida quando o valor xf é aproximação para a solução do problema
+  while (abs(f(xf)) > tol || abs(1-xi/xf) > tol) && contador <= cmax
+    # verifica em qual dos intervalos está a raiz
   if(f(a)*f(xf) < 0)
-    #a = a;  # redudante(apenas para fixar)
-    b = xf; 
-  else
-    a = xf;
-    #b = b;
+      #a = a;  # redudante(apenas para fixar)
+      b = xf;   
+    else
+      a = xf;
+      #b = b;
   end
   contador++;  # incrementa contador em 1
   xi = xf; # define a aproximação nova como antiga
   xf = (a + b) / 2.;  # recalcula uma nova aproximação
-  
-  #repete até condição de parada
-end
 
-fprintf("Raiz encontrada com tolerância (tol) %f\n", tol);
-fprintf("Raiz encontrada (xf) = %f\n", xf');
-fprintf("Numero de iterações (contador) = %i\n", contador);
+  #repete até condição de parada
+
+  fprintf("Raiz encontrada com tolerância (tol) %f\n", tol);
+  fprintf("Raiz encontrada (xf) = %f\n", xf');
+  fprintf("Numero de iterações (contador) = %i\n", contador);
+else
+  disp("Intervalo inválido");
+end
