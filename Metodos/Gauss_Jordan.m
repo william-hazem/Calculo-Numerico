@@ -1,44 +1,49 @@
-# Este programa realiza a eliminação de Gauss-Jordan
-# @X é a matrix de coeficiente
-# @y é a matrix de igualdade
-# OBS: @x é uma matrix n por n
+% ImplementaÃ§Ã£o do MÃ©todo de Newthon-Raphson
+% Autor: William Henrique (william.martins@ee.ufcg.edu.br)
+%
+% @[in] X, matrix de coeficientes
+% @[in] y, vetor de soluÃ§Ãµes
+%
+% @[out] ry, entradas do sistema
+%%
 
 function ry = Gauss_Jordan(X, y)
-  [p, q] = size(X)
-  [n, m] = size(y)
-  # verifica se as dimensões são válidas
-  if p != n || p != q
-    printf('Dimensões invalidas')
-    return;
-  endif 
-  
-  for k=1:p # alterna entre as linhas de pivoteamento
-    pivo = X(k, k)
-    
-    if pivo == 0 #evita divisões por zero
-      if k >= p
-        break
-      else
-        k = k + 1;
-      endif
+
+[p, q] = size(X)
+[n, m] = size(y)
+
+% verifica se as dimensÃµes sÃ£o vÃ¡lidas
+if p != n || p != q
+  return;
+endif
+
+for k=1:p % alterna entre as linhas de pivoteamento
+  pivo = X(k, k);
+
+  if pivo == 0 % evita divisÃµes por zero
+    if k >= p
+      break
+    else
+      k = k + 1;
     endif
-    
-    l = X(k, :)
-    for i=1:p # itera as linhas da matrix
-      m = X(i, k) / pivo
-      if k != i 
-        X(i, :) = X(i, :) - m*l 
-        y(i) = y(i) - m*y(k)
-      endif
-    endfor
+  endif
+
+  l = X(k, :);
+  for i=1:p % itera as linhas da matrix
+    m = X(i, k) / pivo;
+    if k != i
+      X(i, :) = X(i, :) - m*l;
+      y(i) = y(i) - m*y(k);
+    endif
   endfor
-  printf('Identidade: ')
-  for n=1:p # transforma a matrix dos coeficiente em uma matrix diagonal unitária
-    pivo = X(n, n)
-    X(n, n) = X(n, n) / pivo
-    y(n) = y(n) / pivo
-  endfor
-  
-  # variaveis de saída
-  ry = y
+endfor
+
+for n=1:p % transforma a matrix dos coeficiente em uma matrix diagonal unitÃ¡ria
+  pivo = X(n, n);
+  X(n, n) = X(n, n) / pivo;
+  y(n) = y(n) / pivo;
+endfor
+
+ry = y;
+
 endfunction;
