@@ -1,4 +1,4 @@
-# Cálculo Númerico
+# Cálculo Numérico
 
 Repositório contento métodos e algoritmos implementados em matlab/octave para a resolução de problemas númericos.
 
@@ -11,7 +11,7 @@ Repositório contento métodos e algoritmos implementados em matlab/octave para 
 
 ### Métodos para Sistemas Lineares
 1. [Eliminação de Gauss-Jordan](Metodos/Gauss_Jordan.m) ([Exemplo](Exemplos/gauss_jordan_example.m))
-2. [Decomposição UV]()
+2. [Decomposição LU](Metodos/LUdecompose.m) ([Exemplo](Exemplos/LU_example.m))
 
 
 ## Referências
