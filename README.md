@@ -1,8 +1,8 @@
 # Cálculo Numérico
 
-Repositório contento métodos e algoritmos implementados em matlab/octave para a resolução de problemas númericos.
+Repositório contento métodos e algoritmos implementados em matlab/octave para a resolução de problemas numéricos.
 
-## Algoritmos Númericos
+## Algoritmos Numéricos
 ### Aproximação de Zeros
 1. [Método da Bisseção](Metodos/bisection_method.m) ([Exemplo](Exemplos/bissec_example.m))
 1. [Método da Falsa Posição](Metodos/fp_method.m) ([Exemplo](Exemplos/fp_example.m))
