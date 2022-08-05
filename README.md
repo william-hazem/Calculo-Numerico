@@ -13,6 +13,9 @@ Repositório contento métodos e algoritmos implementados em matlab/octave para 
 1. [Eliminação de Gauss-Jordan](Metodos/Gauss_Jordan.m) ([Exemplo](Exemplos/gauss_jordan_example.m))
 2. [Decomposição LU](Metodos/LUdecompose.m) ([Exemplo](Exemplos/LU_example.m))
 
+### Interpolação
+1. [Interpolação Linear](Metodos/interpolation/linInterp2.m) ([Exemplo](Exemplos/linInterp2_example.m))
+2. [Interpolação Quadrática](Metodos/interpolation/quadInterp3.m) ([Exemplo](Exemplos/quadInterp3_example.m))
 
 ## Referências
 1. [Método da bisseção](https://pt.wikipedia.org/wiki/M%C3%A9todo_da_bisse%C3%A7%C3%A3o)
